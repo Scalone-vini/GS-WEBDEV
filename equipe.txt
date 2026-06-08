@@ -1,0 +1,13 @@
+════════════════════════════════════════════════════
+   EQUIPE DO PROJETO — AgroSat
+   FIAP | Web Development | 2026
+════════════════════════════════════════════════════
+
+INTEGRANTES:
+  • Vinicius Scalone        RM: 573783
+  • Rafael de Souza         RM: 568777
+
+LINK DO REPOSITÓRIO GITHUB:
+  https://github.com/Scalone-vini/GS-WEBDEV
+
+════════════════════════════════════════════════════
