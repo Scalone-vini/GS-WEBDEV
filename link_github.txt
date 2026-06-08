@@ -1,0 +1,9 @@
+
+====================================================
+Como fazer o deploy (GitHub Pages):
+1. Faça push do projeto para o GitHub
+2. Vá em Settings > Pages
+3. Source: Deploy from branch > main > / (root)
+4. Aguarde alguns minutos
+5. URL será: https://SEU_USUARIO.github.io/agrosat
+====================================================

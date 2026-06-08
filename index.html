@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AgroSat — Alertas climáticos por satélite para agricultores familiares. APIs da NASA, INPE e Arduino para decisões em tempo real." />
+  <title>AgroSat — Alertas Climáticos para o Campo</title>
+
+  <!-- Google Fonts: Playfair Display + Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/reset.css" />
+
+  <!-- Estilos principais -->
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+
+  <!-- ╔══════════════════════════════════════╗
+       ║  NAVEGAÇÃO COM ÂNCORAS              ║
+       ╚══════════════════════════════════════╝ -->
+  <nav class="nav" aria-label="Navegação principal">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="AgroSat — ir para o início">
+        <div class="nav-logo-icone" aria-hidden="true">🛰️</div>
+        <span class="nav-logo-texto">Agro<span>Sat</span></span>
+      </a>
+      <ul class="nav-menu" role="list">
+        <li><a href="#problema">Problema</a></li>
+        <li><a href="#tecnologia">Tecnologia</a></li>
+        <li><a href="#objetivos">Objetivos</a></li>
+        <li><a href="#publico">Público-Alvo</a></li>
+        <li><a href="#beneficios">Benefícios</a></li>
+        <li><a href="#aplicacao" class="nav-cta">Ver na Prática</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ╔══════════════════════════════════════╗
+         ║  HERO                               ║
+         ╚══════════════════════════════════════╝ -->
+    <section id="hero" aria-labelledby="hero-titulo">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-bg-grade"></div>
+        <div class="hero-bg-glow"></div>
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+      </div>
+
+      <div class="hero-inner">
+        <div class="hero-conteudo">
+          <div class="hero-badge">🌿 Tecnologia a serviço do campo</div>
+
+          <h1 class="hero-titulo" id="hero-titulo">
+            Alertas climáticos
+            <span class="hero-titulo-destaque">que salvam safras</span>
+          </h1>
+
+          <p class="hero-descricao">
+            O AgroSat conecta dados da NASA, INPE e sensores Arduino para entregar
+            alertas precisos ao agricultor — antes que o problema chegue à lavoura.
+          </p>
+
+          <div class="hero-btns">
+            <a href="#problema" class="btn-primario">Entender o Problema →</a>
+            <a href="#aplicacao" class="btn-secundario">Ver na Prática ↓</a>
+          </div>
+
+          <div class="hero-stats" aria-label="Números do AgroSat">
+            <div class="hero-stat">
+              <span class="hero-stat-numero">NASA</span>
+              <div class="hero-stat-label">API de dados climáticos</div>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-numero">INPE</span>
+              <div class="hero-stat-label">Satélites brasileiros</div>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-numero">24h</span>
+              <div class="hero-stat-label">Ciclo de atualização</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="satelite-card">
+            <div class="satelite-mapa">
+              <div class="mapa-grade"></div>
+              <div class="mapa-ponto" style="top:30%;left:40%"></div>
+              <div class="mapa-ponto" style="top:55%;left:65%"></div>
+              <div class="mapa-ponto" style="top:20%;left:70%"></div>
+              <div class="mapa-ponto" style="top:70%;left:25%"></div>
+            </div>
+            <div class="satelite-metricas">
+              <div class="metrica-chip">
+                <span class="metrica-chip-valor">⚠️</span>
+                <span class="metrica-chip-label">Alerta Ativo</span>
+              </div>
+              <div class="metrica-chip">
+                <span class="metrica-chip-valor">18°C</span>
+                <span class="metrica-chip-label">Temp. Solo</span>
+              </div>
+              <div class="metrica-chip">
+                <span class="metrica-chip-valor">AO VIVO</span>
+                <span class="metrica-chip-label">Status</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════╗
+         ║  SEÇÃO 1 — PROBLEMA                 ║
+         ╚══════════════════════════════════════╝ -->
+    <section id="problema" class="secao secao-alt" aria-labelledby="problema-titulo">
+      <div class="container">
+        <div class="secao-cabecalho">
+          <div class="secao-num" aria-hidden="true">01</div>
+          <div class="tag-destaque">O Problema</div>
+        </div>
+        <h2 class="secao-titulo" id="problema-titulo">
+          Agricultores perdem safras por falta de alertas climáticos precisos
+        </h2>
+        <div class="secao-divider" aria-hidden="true"></div>
+
+        <div class="problema-layout">
+          <div class="problema-texto">
+            <p class="secao-subtitulo">
+              Geadas, secas, chuvas excessivas e granizo devastam lavouras todos os anos
+              no Brasil. O pequeno produtor, sem acesso a dados confiáveis, só descobre
+              o problema quando já é tarde demais.
+            </p>
+
+            <ul class="problema-lista" aria-label="Consequências da falta de alertas">
+              <li class="problema-lista-item">
+                <span class="prob-icone" aria-hidden="true">🌨️</span>
+                <div>
+                  <strong>Geadas sem aviso prévio</strong>
+                  <p>Uma madrugada fria não prevista pode destruir 100% de uma plantação de café ou hortaliças em poucas horas.</p>
+                </div>
+              </li>
+              <li class="problema-lista-item">
+                <span class="prob-icone" aria-hidden="true">🌧️</span>
+                <div>
+                  <strong>Chuvas excessivas na colheita</strong>
+                  <p>Sem previsão precisa por microrregião, o produtor não sabe o momento certo de colher — e perde o ponto ideal da cultura.</p>
+                </div>
+              </li>
+              <li class="problema-lista-item">
+                <span class="prob-icone" aria-hidden="true">☀️</span>
+                <div>
+                  <strong>Veranicos não identificados</strong>
+                  <p>Períodos de seca dentro da estação chuvosa causam estresse hídrico severo que previsões genéricas não capturam.</p>
+                </div>
+              </li>
+              <li class="problema-lista-item">
+                <span class="prob-icone" aria-hidden="true">📡</span>
+                <div>
+                  <strong>Dados inacessíveis ao pequeno produtor</strong>
+                  <p>As ferramentas profissionais de monitoramento climático custam caro e exigem conhecimento técnico fora da realidade da agricultura familiar.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <figure class="problema-figura">
+            <img
+              src="images/lavoura-seca.jpg"
+              alt="Lavoura de milho com folhas enroladas e secas, evidenciando danos causados por estresse hídrico não previsto"
+            />
+            <figcaption>Lavoura afetada por veranico — prejuízo que alertas antecipados poderiam evitar</figcaption>
+          </figure>
+        </div>
+
+        <div class="destaque-box" role="blockquote">
+          <span class="destaque-aspas" aria-hidden="true">"</span>
+          <p>Segundo a EMBRAPA, o Brasil perde até <strong>R$ 8 bilhões por ano</strong> em safras
+          devido a eventos climáticos extremos que poderiam ser minimizados com alertas precisos e antecipados.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════╗
+         ║  SEÇÃO 2 — TECNOLOGIA               ║
+         ╚══════════════════════════════════════╝ -->
+    <section id="tecnologia" class="secao" aria-labelledby="tec-titulo">
+      <div class="container">
+        <div class="secao-cabecalho">
+          <div class="secao-num" aria-hidden="true">02</div>
+          <div class="tag-destaque">A Tecnologia</div>
+        </div>
+        <h2 class="secao-titulo" id="tec-titulo">
+          APIs da NASA e INPE + Arduino para monitoramento em tempo real
+        </h2>
+        <div class="secao-divider" aria-hidden="true"></div>
+
+        <p class="secao-subtitulo">
+          Combinamos dados de satélites governamentais gratuitos com sensores físicos
+          de baixo custo instalados na própria propriedade — entregando precisão
+          local que previsões regionais não conseguem.
+        </p>
+
+        <div class="tec-grid" role="list" aria-label="Componentes tecnológicos do AgroSat">
+
+          <article class="tec-card" role="listitem">
+            <div class="tec-card-icone" aria-hidden="true">🚀</div>
+            <div class="tec-card-fonte">NASA — POWER API</div>
+            <h3 class="tec-card-titulo">Dados Climáticos Globais</h3>
+            <p class="tec-card-texto">
+              A API NASA POWER fornece dados de temperatura, umidade, precipitação,
+              irradiação solar e velocidade do vento com histórico de 30 anos —
+              tudo gratuito e acessível via requisição HTTP.
+            </p>
+            <ul class="tec-card-lista">
+              <li>Temperatura mín/máx por dia</li>
+              <li>Precipitação acumulada</li>
+              <li>Irradiação solar (kWh/m²)</li>
+              <li>Velocidade e direção do vento</li>
+            </ul>
+          </article>
+
+          <article class="tec-card tec-card-destaque" role="listitem">
+            <div class="tec-card-icone" aria-hidden="true">🛰️</div>
+            <div class="tec-card-fonte">INPE — BDQueimadas + CPTEC</div>
+            <h3 class="tec-card-titulo">Satélites Brasileiros</h3>
+            <p class="tec-card-texto">
+              O INPE disponibiliza dados georreferenciados do território nacional:
+              imagens de satélite, risco de queimadas, previsão numérica de tempo
+              e alertas de eventos extremos no Brasil.
+            </p>
+            <ul class="tec-card-lista">
+              <li>Imagens GOES-16 em tempo real</li>
+              <li>Alerta de geada por município</li>
+              <li>Risco de incêndio e queimada</li>
+              <li>Previsão de 15 dias localizada</li>
+            </ul>
+          </article>
+
+          <article class="tec-card" role="listitem">
+            <div class="tec-card-icone" aria-hidden="true">🔌</div>
+            <div class="tec-card-fonte">Hardware — Arduino + Sensores</div>
+            <h3 class="tec-card-titulo">Estação Local de Campo</h3>
+            <p class="tec-card-texto">
+              Um kit Arduino com sensores instalado na propriedade coleta dados
+              microclimáticos reais — temperatura, umidade do solo, chuva e geada —
+              transmitindo via LoRa ou Wi-Fi para a plataforma.
+            </p>
+            <ul class="tec-card-lista">
+              <li>Sensor DHT22 (temp + umidade ar)</li>
+              <li>Sensor capacitivo de umidade solo</li>
+              <li>Pluviômetro de báscula</li>
+              <li>Sensor de geada DS18B20</li>
+            </ul>
+          </article>
+
+        </div>
+
+        <figure class="tec-diagrama" aria-label="Diagrama do fluxo de dados do AgroSat">
+        </figure>
+
+        <div class="tec-fluxo" role="list" aria-label="Fluxo de dados em 4 etapas">
+          <div class="tec-fluxo-passo" role="listitem">
+            <span class="fluxo-num" aria-hidden="true">1</span>
+            <strong>Coleta</strong>
+            <span>NASA + INPE + Arduino captam dados</span>
+          </div>
+          <div class="tec-fluxo-seta" aria-hidden="true">→</div>
+          <div class="tec-fluxo-passo" role="listitem">
+            <span class="fluxo-num" aria-hidden="true">2</span>
+            <strong>Processamento</strong>
+            <span>Algoritmo cruza e analisa os dados</span>
+          </div>
+          <div class="tec-fluxo-seta" aria-hidden="true">→</div>
+          <div class="tec-fluxo-passo" role="listitem">
+            <span class="fluxo-num" aria-hidden="true">3</span>
+            <strong>Classificação</strong>
+            <span>Risco calculado por cultura e fase</span>
+          </div>
+          <div class="tec-fluxo-seta" aria-hidden="true">→</div>
+          <div class="tec-fluxo-passo" role="listitem">
+            <span class="fluxo-num" aria-hidden="true">4</span>
+            <strong>Alerta</strong>
+            <span>Push, SMS ou WhatsApp ao produtor</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════╗
+         ║  SEÇÃO 3 — OBJETIVOS                ║
+         ╚══════════════════════════════════════╝ -->
+    <section id="objetivos" class="secao secao-alt" aria-labelledby="obj-titulo">
+      <div class="container">
+        <div class="secao-cabecalho">
+          <div class="secao-num" aria-hidden="true">03</div>
+          <div class="tag-destaque">Nossos Objetivos</div>
+        </div>
+        <h2 class="secao-titulo" id="obj-titulo">
+          Democratizar o acesso a dados de satélite para pequenos produtores
+        </h2>
+        <div class="secao-divider" aria-hidden="true"></div>
+
+        <div class="obj-layout">
+          <figure class="obj-figura">
+            <img
+              src="images/agricultor-celular.jpg"
+              alt="Agricultor familiar de meia-idade consultando aplicativo de monitoramento climático no smartphone em meio à sua lavoura de hortaliças"
+            />
+            <figcaption>Acesso democrático à tecnologia de ponta — direto do campo</figcaption>
+          </figure>
+
+          <div class="obj-conteudo">
+            <ul class="obj-lista" aria-label="Objetivos do projeto AgroSat">
+
+              <li class="obj-item">
+                <div class="obj-item-icone" aria-hidden="true">🎯</div>
+                <div>
+                  <h3>Acesso Gratuito e Simples</h3>
+                  <p>Oferecer versão básica gratuita para agricultores familiares, sem necessidade de cadastro complexo ou equipamentos caros.</p>
+                </div>
+              </li>
+
+              <li class="obj-item">
+                <div class="obj-item-icone" aria-hidden="true">📱</div>
+                <div>
+                  <h3>Interface para Qualquer Celular</h3>
+                  <p>Plataforma leve e responsiva que funciona em smartphones básicos com baixa conectividade, inclusive com modo offline.</p>
+                </div>
+              </li>
+
+              <li class="obj-item">
+                <div class="obj-item-icone" aria-hidden="true">🌎</div>
+                <div>
+                  <h3>Cobertura Nacional</h3>
+                  <p>Expandir o monitoramento para todos os biomas brasileiros — Cerrado, Amazônia, Caatinga, Mata Atlântica, Pampa e Pantanal.</p>
+                </div>
+              </li>
+
+              <li class="obj-item">
+                <div class="obj-item-icone" aria-hidden="true">🤝</div>
+                <div>
+                  <h3>Parceria com Cooperativas</h3>
+                  <p>Integrar o AgroSat às redes de cooperativas rurais para ampliar o alcance e facilitar assistência técnica coletiva.</p>
+                </div>
+              </li>
+
+              <li class="obj-item">
+                <div class="obj-item-icone" aria-hidden="true">📚</div>
+                <div>
+                  <h3>Educação Climática no Campo</h3>
+                  <p>Além dos alertas, oferecer conteúdo educativo sobre riscos climáticos para cada tipo de cultura e região do Brasil.</p>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════╗
+         ║  SEÇÃO 4 — PÚBLICO-ALVO             ║
+         ╚══════════════════════════════════════╝ -->
+    <section id="publico" class="secao" aria-labelledby="pub-titulo">
+      <div class="container">
+        <div class="secao-cabecalho">
+          <div class="secao-num" aria-hidden="true">04</div>
+          <div class="tag-destaque">Público-Alvo</div>
+        </div>
+        <h2 class="secao-titulo" id="pub-titulo">
+          Agricultores familiares, técnicos agrícolas e cooperativas rurais
+        </h2>
+        <div class="secao-divider" aria-hidden="true"></div>
+        <p class="secao-subtitulo">
+          O AgroSat foi desenhado para atender quem mais precisa de informação
+          acessível e confiável no campo brasileiro.
+        </p>
+
+        <div class="pub-grid" role="list" aria-label="Perfis de usuários do AgroSat">
+
+          <article class="pub-card" role="listitem">
+            <div class="pub-avatar" aria-hidden="true">👨‍🌾</div>
+            <h3 class="pub-titulo">Agricultor Familiar</h3>
+            <p class="pub-desc">
+              Produtores com até 4 módulos fiscais que dependem da lavoura para
+              sustentar a família. Precisam de alertas simples, no celular,
+              no idioma do campo — sem complicação.
+            </p>
+            <ul class="pub-necessidades" aria-label="Necessidades do agricultor familiar">
+              <li>🔔 Alerta de geada e granizo</li>
+              <li>📱 App leve, sem internet rápida</li>
+              <li>🆓 Custo acessível ou gratuito</li>
+              <li>🗣️ Linguagem simples e direta</li>
+            </ul>
+            <div class="pub-badge">+4,3 milhões no Brasil</div>
+          </article>
+
+          <article class="pub-card pub-card-destaque" role="listitem">
+            <div class="pub-avatar" aria-hidden="true">👩‍💼</div>
+            <h3 class="pub-titulo">Técnico Agrícola</h3>
+            <p class="pub-desc">
+              Profissionais que prestam assistência técnica a múltiplos produtores.
+              Usam o AgroSat para monitorar várias propriedades simultaneamente
+              e antecipar recomendações de manejo.
+            </p>
+            <ul class="pub-necessidades" aria-label="Necessidades do técnico agrícola">
+              <li>🗺️ Painel multi-propriedades</li>
+              <li>📊 Relatórios técnicos automáticos</li>
+              <li>📅 Histórico climático por talhão</li>
+              <li>🔗 Integração com ART e laudo</li>
+            </ul>
+            <div class="pub-badge">Perfil mais avançado</div>
+          </article>
+
+          <article class="pub-card" role="listitem">
+            <div class="pub-avatar" aria-hidden="true">🏛️</div>
+            <h3 class="pub-titulo">Cooperativas Rurais</h3>
+            <p class="pub-desc">
+              Organizações que representam centenas de produtores. Usam o AgroSat
+              para centralizar o monitoramento da região, emitir alertas coletivos
+              e tomar decisões logísticas baseadas em dados.
+            </p>
+            <ul class="pub-necessidades" aria-label="Necessidades das cooperativas rurais">
+              <li>📡 Monitoramento regional</li>
+              <li>📣 Alerta em massa para associados</li>
+              <li>📈 Análise de risco por safra</li>
+              <li>🔌 API para sistemas próprios</li>
+            </ul>
+            <div class="pub-badge">Plano corporativo</div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════╗
+         ║  SEÇÃO 5 — BENEFÍCIOS               ║
+         ╚══════════════════════════════════════╝ -->
+    <section id="beneficios" class="secao secao-alt" aria-labelledby="ben-titulo">
+      <div class="container">
+        <div class="secao-cabecalho">
+          <div class="secao-num" aria-hidden="true">05</div>
+          <div class="tag-destaque">Os Benefícios</div>
+        </div>
+        <h2 class="secao-titulo" id="ben-titulo">
+          Redução de perdas, alertas antecipados e decisões baseadas em dados reais
+        </h2>
+        <div class="secao-divider" aria-hidden="true"></div>
+
+        <div class="ben-grid" role="list" aria-label="Benefícios do AgroSat">
+
+          <article class="ben-card" role="listitem">
+            <div class="ben-numero" aria-hidden="true">-60%</div>
+            <div class="ben-icone" aria-hidden="true">🌾</div>
+            <h3>Redução de Perdas</h3>
+            <p>Alertas com até 48h de antecedência permitem ao produtor tomar medidas
+            preventivas — cobrindo culturas, ajustando irrigação, antecipando a colheita.</p>
+          </article>
+
+          <article class="ben-card ben-card-destaque" role="listitem">
+            <div class="ben-numero" aria-hidden="true">48h</div>
+            <div class="ben-icone" aria-hidden="true">⏰</div>
+            <h3>Alertas Antecipados</h3>
+            <p>O sistema combina previsão numérica do INPE com dados locais do Arduino
+            para gerar alertas 48 horas antes de eventos críticos.</p>
+          </article>
+
+          <article class="ben-card" role="listitem">
+            <div class="ben-numero" aria-hidden="true">100%</div>
+            <div class="ben-icone" aria-hidden="true">📊</div>
+            <h3>Decisões com Dados Reais</h3>
+            <p>Chega de adivinhar. O produtor planta, irriga e colhe com base em
+            dados reais da sua propriedade — não em previsões genéricas de TV.</p>
+          </article>
+
+          <article class="ben-card" role="listitem">
+            <div class="ben-numero" aria-hidden="true">💰</div>
+            <div class="ben-icone" aria-hidden="true">🏦</div>
+            <h3>Acesso a Crédito e Seguro</h3>
+            <p>Relatórios automáticos de risco climático facilitam contratação de seguro
+            agrícola e comprovação de perdas para o Pronaf e Garantia-Safra.</p>
+          </article>
+
+          <article class="ben-card" role="listitem">
+            <div class="ben-numero" aria-hidden="true">🌱</div>
+            <div class="ben-icone" aria-hidden="true">♻️</div>
+            <h3>Sustentabilidade</h3>
+            <p>Irrigar só quando necessário, aplicar defensivos no momento certo e
+            reduzir desperdício de insumos — o AgroSat é amigo do meio ambiente.</p>
+          </article>
+
+          <article class="ben-card" role="listitem">
+            <div class="ben-numero" aria-hidden="true">📡</div>
+            <div class="ben-icone" aria-hidden="true">🔗</div>
+            <h3>Sem Dependência de Internet</h3>
+            <p>O kit Arduino transmite dados via LoRaWAN mesmo sem cobertura de celular —
+            essencial para áreas rurais remotas com conectividade limitada.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════╗
+         ║  SEÇÃO 6 — APLICAÇÃO NO DIA A DIA   ║
+         ╚══════════════════════════════════════╝ -->
+    <section id="aplicacao" class="secao" aria-labelledby="app-titulo">
+      <div class="container">
+        <div class="secao-cabecalho">
+          <div class="secao-num" aria-hidden="true">06</div>
+          <div class="tag-destaque">Na Prática</div>
+        </div>
+        <h2 class="secao-titulo" id="app-titulo">
+          O agricultor acessa pelo celular e recebe o alerta antes de plantar
+        </h2>
+        <div class="secao-divider" aria-hidden="true"></div>
+        <p class="secao-subtitulo">
+          Uma jornada simples, do campo para o bolso — sem necessidade de
+          conhecimento técnico em tecnologia.
+        </p>
+
+        <div class="app-passos" role="list" aria-label="Passo a passo de uso do AgroSat">
+
+          <div class="app-passo" role="listitem">
+            <div class="app-passo-num" aria-label="Passo 1">1</div>
+            <div class="app-passo-icone" aria-hidden="true">📲</div>
+            <h3>Baixa o App</h3>
+            <p>O agricultor instala o AgroSat no celular. Cadastro em 2 minutos com nome, município e cultura plantada.</p>
+          </div>
+
+          <div class="app-passo-conector" aria-hidden="true"></div>
+
+          <div class="app-passo" role="listitem">
+            <div class="app-passo-num" aria-label="Passo 2">2</div>
+            <div class="app-passo-icone" aria-hidden="true">📍</div>
+            <h3>Marca a Propriedade</h3>
+            <p>Com o GPS do celular, demarca os talhões no mapa. O sistema já sabe a localização exata para cruzar com os satélites.</p>
+          </div>
+
+          <div class="app-passo-conector" aria-hidden="true"></div>
+
+          <div class="app-passo" role="listitem">
+            <div class="app-passo-num" aria-label="Passo 3">3</div>
+            <div class="app-passo-icone" aria-hidden="true">🔔</div>
+            <h3>Recebe o Alerta</h3>
+            <p>Push no celular: "Risco de geada nos próximos 2 dias na sua lavoura. Recomendamos cobertura das mudas." Claro e direto.</p>
+          </div>
+
+          <div class="app-passo-conector" aria-hidden="true"></div>
+
+          <div class="app-passo" role="listitem">
+            <div class="app-passo-num" aria-label="Passo 4">4</div>
+            <div class="app-passo-icone" aria-hidden="true">✅</div>
+            <h3>Age com Segurança</h3>
+            <p>Com 48h de antecedência, o produtor toma a ação certa: cobre, irriga, antecipa a colheita — e salva a safra.</p>
+          </div>
+
+        </div>
+
+        <figure class="app-mockup">
+          <img
+            src="images/app-tela.jpg"
+            alt="Tela do aplicativo AgroSat em smartphone Android, exibindo mapa da propriedade com alerta vermelho de risco de geada e botão de recomendação de ação"
+          />
+          <figcaption>Interface do AgroSat: simples, visual e acessível para qualquer agricultor</figcaption>
+        </figure>
+
+        <div class="app-depoimento" role="blockquote">
+          <img
+            src="images/produtor-jose.jpg"
+            alt="Fotografia de José Antônio, agricultor familiar de 58 anos, sorrindo diante de sua lavoura de feijão em Minas Gerais"
+            class="app-depoimento-foto"
+          />
+          <div>
+            <p class="app-depoimento-texto">
+              "Antes eu perdia quase tudo quando vinha uma geada surpresa. Com o AgroSat,
+              recebi o alerta dois dias antes, cobri minha plantação de tomate e não
+              perdi um pé sequer. Valeu cada centavo."
+            </p>
+            <cite class="app-depoimento-autor">José Antônio, 58 anos — Agricultor familiar, Minas Gerais</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-logo-bloco">
+          <span class="footer-logo">Agro<span>Sat</span></span>
+          <p class="footer-tagline">Alertas climáticos para quem vive do campo</p>
+        </div>
+
+        <div class="footer-integrantes">
+          <h3>Equipe do Projeto</h3>
+          <ul class="footer-nomes" role="list" aria-label="Integrantes com RM">
+            <li class="footer-nome" role="listitem"><strong>Vinicius Scalone</strong> · RM 573783</li>
+            <li class="footer-nome" role="listitem"><strong>Rafael de Souza</strong>  · RM  568777</li>
+          </ul>
+        </div>
+
+        <div class="footer-direitos">
+          <p>© 2026 AgroSat</p>
+          <p>FIAP — Matéria 4: Front-End Design</p>
+          <a href="https://github.com/agrosat" target="_blank" rel="noopener noreferrer">
+            GitHub do Projeto →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
