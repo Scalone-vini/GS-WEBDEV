@@ -210,3 +210,57 @@ footer{background:var(--cor-escuro);border-top:1px solid rgba(76,175,110,.1);pad
   .solucao-card{flex:0 0 100%}
 }
 @media(max-width:600px){.app-passo,.pub-card,.tec-card{flex:0 0 100%}}
+
+/* ── SLIDESHOW ── */
+.slideshow-wrapper { margin-bottom: 2.5rem; }
+.slideshow { position: relative; background: rgba(255,255,255,.05); border-radius: 1rem; padding: 2rem; text-align: center; }
+#slide-conteudo { font-size: 4rem; margin-bottom: 1rem; }
+#slide-legenda { color: var(--cor-texto-suave); font-size: 1rem; margin-bottom: 1.5rem; min-height: 2.5rem; }
+#slide-prev, #slide-next { background: var(--cor-primaria); color: var(--cor-branco); padding: .5rem 1.2rem; border-radius: 999px; margin: .3rem; font-size: .85rem; }
+#slide-prev:hover, #slide-next:hover { background: var(--cor-acento); }
+
+/* ── FORMULÁRIO ── */
+.form-grupo { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1.2rem; }
+.form-grupo label { font-size: .9rem; color: var(--cor-texto-suave); font-weight: 500; }
+.form-grupo input,
+.form-grupo select,
+.form-grupo textarea { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: .5rem; padding: .75rem 1rem; color: var(--cor-branco); font-size: .95rem; transition: border-color .2s; }
+.form-grupo input:focus,
+.form-grupo select:focus,
+.form-grupo textarea:focus { outline: none; border-color: var(--cor-acento); }
+.form-grupo select option { background: var(--cor-fundo); }
+.form-erro { color: #f87171; font-size: .82rem; min-height: 1rem; }
+.form-aceite,
+.form-grupo:has(#aceite-lgpd) { flex-direction: row; align-items: center; gap: .6rem; flex-wrap: wrap; }
+#form-sucesso { background: rgba(76,175,110,.1); border: 1px solid var(--cor-acento); border-radius: .75rem; padding: 1.5rem; color: var(--cor-branco); text-align: center; margin-top: 1rem; }
+
+/* ── QUIZ ── */
+#quiz-container { background: rgba(255,255,255,.04); border-radius: 1rem; padding: 2rem; max-width: 680px; margin: 0 auto; }
+#quiz-contador { font-size: .85rem; color: var(--cor-texto-suave); margin-bottom: 1rem; }
+#quiz-pergunta { font-size: 1.1rem; color: var(--cor-branco); font-weight: 600; margin-bottom: 1.5rem; line-height: 1.6; }
+#quiz-opcoes { display: flex; flex-direction: column; gap: .75rem; margin-bottom: 1rem; }
+.quiz-opcao { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: .5rem; padding: .85rem 1.2rem; color: var(--cor-branco); text-align: left; font-size: .95rem; transition: background .2s; }
+.quiz-opcao:hover:not(:disabled) { background: rgba(76,175,110,.2); border-color: var(--cor-acento); }
+.quiz-opcao:disabled { cursor: default; }
+#quiz-feedback { font-size: .95rem; line-height: 1.6; padding: .85rem 1rem; border-radius: .5rem; background: rgba(255,255,255,.06); color: var(--cor-branco); margin-bottom: 1rem; }
+#quiz-resultado { text-align: center; padding: 1.5rem; color: var(--cor-branco); }
+
+/* ── TEMA ── */
+.tema-painel { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999; display: flex; flex-direction: column; align-items: flex-end; gap: .5rem; }
+#tema-toggle { background: var(--cor-primaria); color: var(--cor-branco); width: 3rem; height: 3rem; border-radius: 50%; font-size: 1.3rem; box-shadow: 0 4px 20px rgba(0,0,0,.4); transition: transform .2s; }
+#tema-toggle:hover { transform: scale(1.1); }
+#tema-opcoes { background: var(--cor-fundo-claro); border: 1px solid rgba(255,255,255,.1); border-radius: .75rem; padding: 1rem; display: flex; flex-direction: column; gap: .5rem; min-width: 160px; }
+#tema-opcoes p { font-size: .8rem; color: var(--cor-texto-suave); margin-bottom: .25rem; }
+.tema-opcao { background: rgba(255,255,255,.06); color: var(--cor-branco); padding: .5rem .85rem; border-radius: .4rem; font-size: .88rem; text-align: left; transition: background .2s; }
+.tema-opcao:hover { background: var(--cor-acento); }
+
+/* ── MENU HAMBÚRGUER ── */
+.nav-hamburger { display: none; background: none; color: var(--cor-branco); font-size: 1.5rem; padding: .25rem .5rem; }
+.nav-link-ativo { color: var(--cor-acento) !important; }
+.nav-link-ativo::after { width: 100% !important; }
+
+/* ── RESPONSIVO ── */
+@media (max-width: 768px) {
+  .nav-hamburger { display: block; }
+  .nav-menu.aberto { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cor-fundo-claro); padding: 1.5rem 2rem; gap: 1.2rem; z-index: 100; }
+}
