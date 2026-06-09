@@ -32,3 +32,20 @@
     conteudo.textContent = slides[atual].emoji;
     legenda.textContent  = slides[atual].texto;
   }
+  document.getElementById("slide-prev").addEventListener("click", function () {
+    atual = (atual - 1 + slides.length) % slides.length;
+    mostrarSlide();
+  });
+
+  document.getElementById("slide-next").addEventListener("click", function () {
+    atual = (atual + 1) % slides.length;
+    mostrarSlide();
+  });
+
+  setInterval(function () {
+    atual = (atual + 1) % slides.length;
+    mostrarSlide();
+  }, 4000);
+
+  mostrarSlide();
+})();
