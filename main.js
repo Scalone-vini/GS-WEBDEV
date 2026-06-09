@@ -372,3 +372,25 @@ feedbackEl.style.display = "block";
   const temaSalvo = localStorage.getItem("agrosat-tema");
   aplicarTema(temaSalvo || "verde");
 })();
+(function initNavMobile() {
+  const navInner = document.querySelector(".nav-inner");
+  const navMenu  = document.querySelector(".nav-menu");
+  if (!navInner || !navMenu) return;
+
+  const btn = document.createElement("button");
+  btn.className   = "nav-hamburger";
+  btn.textContent = "☰";
+  navInner.appendChild(btn);
+
+  btn.addEventListener("click", function () {
+    const aberto = navMenu.classList.toggle("aberto");
+    btn.textContent = aberto ? "✕" : "☰";
+  });
+
+  navMenu.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function () {
+      navMenu.classList.remove("aberto");
+      btn.textContent = "☰";
+    });
+  });
+})();
