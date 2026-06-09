@@ -45,4 +45,9 @@ A abordagem foi adotada integralmente pois é mais semântica e escalável do qu
 
 ---
 
+## Entre outra correções e coisas para deixar o codigo avançado para um melhor layout visual
+Tudo que foi ensinado em aula foi passado para ia e um codigo base para ela nos ajudar
+
+---
+
 *Todas as demais funcionalidades do projeto — estrutura HTML, estilos CSS, lógica do quiz, validação do formulário, navegação e organização do código — foram desenvolvidas manualmente pela equipe sem auxílio de IA.*
