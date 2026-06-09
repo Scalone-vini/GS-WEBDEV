@@ -49,3 +49,25 @@
 
   mostrarSlide();
 })();
+
+(function initFormulario() {
+  const footer = document.querySelector("footer");
+  if (!footer) return;
+
+  const secao = document.createElement("section");
+  secao.id = "contato";
+  secao.className = "secao secao-alt";
+  secao.innerHTML = `
+    <div class="container">
+      <h2>Cadastre-se e receba alertas climáticos</h2>
+      <form id="form-contato" novalidate>
+        <div class="form-grupo">
+          <label for="campo-nome">Nome completo *</label>
+          <input type="text" id="campo-nome" placeholder="Ex: José Silva" />
+          <span class="form-erro" id="erro-nome"></span>
+        </div>
+        <div class="form-grupo">
+          <label for="campo-email">E-mail *</label>
+          <input type="email" id="campo-email" placeholder="seu@email.com" />
+          <span class="form-erro" id="erro-email"></span>
+        </div>
