@@ -11,4 +11,24 @@
   ];
 
   let atual = 0;
-}
+  const wrapper = document.createElement("div");
+  wrapper.className = "slideshow-wrapper";
+  wrapper.innerHTML = `
+    <div class="slideshow">
+      <div id="slide-conteudo"></div>
+      <div id="slide-legenda"></div>
+      <button id="slide-prev">← Anterior</button>
+      <button id="slide-next">Próximo →</button>
+    </div>
+  `;
+
+  const diagrama = secao.querySelector(".tec-diagrama");
+  diagrama ? secao.insertBefore(wrapper, diagrama) : secao.appendChild(wrapper);
+
+  const conteudo = document.getElementById("slide-conteudo");
+  const legenda  = document.getElementById("slide-legenda");
+
+  function mostrarSlide() {
+    conteudo.textContent = slides[atual].emoji;
+    legenda.textContent  = slides[atual].texto;
+  }
