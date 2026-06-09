@@ -183,3 +183,34 @@
       correta: 2,
       explicacao: "O AgroSat gera alertas com até 48h de antecedência.",
     },
+    {
+      texto: "Qual tecnologia permite ao Arduino enviar dados SEM cobertura de celular?",
+      opcoes: ["Bluetooth", "Wi-Fi", "LoRaWAN", "4G LTE"],
+      correta: 2,
+      explicacao: "LoRaWAN funciona em áreas rurais sem cobertura móvel.",
+    },
+    {
+      texto: "Quanto o Brasil perde por ano em safras por eventos climáticos extremos?",
+      opcoes: ["R$ 1 bi", "R$ 4 bi", "R$ 8 bi", "R$ 20 bi"],
+      correta: 2,
+      explicacao: "A EMBRAPA estima perdas de até R$ 8 bilhões anuais.",
+    },
+    {
+      texto: "O AgroSat foi criado prioritariamente para qual público?",
+      opcoes: ["Grandes fazendeiros", "Agricultores familiares", "Exportadores de soja", "Pesquisadores"],
+      correta: 1,
+      explicacao: "Foco nos +4,3 milhões de agricultores familiares brasileiros.",
+    },
+    {
+      texto: "Qual instituto disponibiliza imagens GOES-16 e alertas de geada por município?",
+      opcoes: ["EMBRAPA", "INPE", "IBAMA", "ANA"],
+      correta: 1,
+      explicacao: "O INPE opera satélites e disponibiliza dados meteorológicos nacionais.",
+    },
+    {
+      texto: "Qual benefício do AgroSat facilita o acesso ao seguro agrícola?",
+      opcoes: ["App offline", "Linguagem simples", "Relatórios de risco climático", "Integração com cooperativas"],
+      correta: 2,
+      explicacao: "Relatórios automáticos facilitam a comprovação de perdas.",
+    },
+  ];
