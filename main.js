@@ -394,3 +394,43 @@ feedbackEl.style.display = "block";
     });
   });
 })();
+(function initNavScroll() {
+  const secoes = document.querySelectorAll("section[id]");
+  const links  = document.querySelectorAll(".nav-menu a");
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        links.forEach(function (link) {
+          const ativo = link.getAttribute("href") === "#" + entry.target.id;
+          link.classList.toggle("nav-link-ativo", ativo);
+        });
+      }
+    });
+  }, { rootMargin: "-50% 0px -45% 0px" });
+
+  secoes.forEach(function (s) { observer.observe(s); });
+})();
+(function initAnimacoes() {
+  const elementos = document.querySelectorAll(
+    ".tec-card, .ben-card, .pub-card, .hero-stat, .form-contato, .quiz-container"
+  );
+
+  elementos.forEach(function (el) {
+    el.style.opacity    = "0";
+    el.style.transform  = "translateY(20px)";
+    el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+  });
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity   = "1";
+        entry.target.style.transform = "translateY(0)";
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  elementos.forEach(function (el) { observer.observe(el); });
+})();
