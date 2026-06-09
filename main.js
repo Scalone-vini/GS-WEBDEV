@@ -243,3 +243,43 @@
   const btnProx     = document.getElementById("quiz-btn-prox");
   const resultadoEl = document.getElementById("quiz-resultado");
   const contadorEl  = document.getElementById("quiz-contador");
+  function carregarPergunta() {
+    respondida = false;
+    feedbackEl.style.display = "none";
+    btnProx.style.display    = "none";
+    opcoesEl.innerHTML       = "";
+
+    const q = perguntas[questaoAtual];
+    contadorEl.textContent = "Pergunta " + (questaoAtual + 1) + " de " + perguntas.length;
+    perguntaEl.textContent = q.texto;
+
+    q.opcoes.forEach(function (opcao, i) {
+      const btn = document.createElement("button");
+      btn.className   = "quiz-opcao";
+      btn.textContent = opcao;
+      btn.addEventListener("click", function () { responder(i, btn); });
+      opcoesEl.appendChild(btn);
+    });
+  }
+
+  function responder(indice, btnClicado) {
+    if (respondida) return;
+    respondida = true;
+
+    const q = perguntas[questaoAtual];
+    opcoesEl.querySelectorAll(".quiz-opcao").forEach(function (b) { b.disabled = true; });
+
+    if (indice === q.correta) {
+      pontuacao++;
+      btnClicado.style.background = "green";
+      feedbackEl.textContent = "✅ Correto! " + q.explicacao;
+    } else {
+      btnClicado.style.background = "red";
+      opcoesEl.querySelectorAll(".quiz-opcao")[q.correta].style.background = "green";
+        feedbackEl.textContent = "❌ Incorreto. " + q.explicacao;
+    }
+    feedbackEl.style.display = "block";
+    btnProx.textContent   = questaoAtual < perguntas.length - 1 ? "Próxima →" : "Ver resultado 🏆";
+    btnProx.style.display = "inline-block";
+  }
+})();
