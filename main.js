@@ -71,3 +71,35 @@
           <input type="email" id="campo-email" placeholder="seu@email.com" />
           <span class="form-erro" id="erro-email"></span>
         </div>
+
+        <div class="form-grupo">
+          <label for="campo-municipio">Município / UF *</label>
+          <input type="text" id="campo-municipio" placeholder="Ex: Uberaba, MG" />
+          <span class="form-erro" id="erro-municipio"></span>
+        </div>
+        <div class="form-grupo">
+          <label for="campo-cultura">Cultura principal *</label>
+          <select id="campo-cultura">
+            <option value="">— Selecione —</option>
+            <option value="cafe">Café</option>
+            <option value="soja">Soja</option>
+            <option value="milho">Milho</option>
+            <option value="feijao">Feijão</option>
+            <option value="outra">Outra</option>
+          </select>
+          <span class="form-erro" id="erro-cultura"></span>
+        </div>
+        <div class="form-grupo">
+          <input type="checkbox" id="aceite-lgpd" />
+          <label for="aceite-lgpd">Concordo em receber alertas conforme a LGPD *</label>
+          <span class="form-erro" id="erro-aceite"></span>
+        </div>
+        <button type="submit">🌿 Quero Receber Alertas</button>
+      </form>
+      <div id="form-sucesso" style="display:none">
+        <p>✅ Cadastro realizado! Alertas para <strong id="sucesso-municipio"></strong>.</p>
+      </div>
+    </div>
+  `;
+
+  footer.parentNode.insertBefore(secao, footer);
