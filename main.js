@@ -103,3 +103,48 @@
   `;
 
   footer.parentNode.insertBefore(secao, footer);
+  const form = document.getElementById("form-contato");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nome      = document.getElementById("campo-nome");
+    const email     = document.getElementById("campo-email");
+    const municipio = document.getElementById("campo-municipio");
+    const cultura   = document.getElementById("campo-cultura");
+    const aceite    = document.getElementById("aceite-lgpd");
+
+    let valido = true;
+
+    ["nome","email","municipio","cultura","aceite"].forEach(function (id) {
+      document.getElementById("erro-" + id).textContent = "";
+    });
+
+    if (nome.value.trim().length < 3) {
+      document.getElementById("erro-nome").textContent = "Nome obrigatório (mínimo 3 letras).";
+      valido = false;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+      document.getElementById("erro-email").textContent = "E-mail inválido.";
+      valido = false;
+    }
+    if (municipio.value.trim().length < 3) {
+      document.getElementById("erro-municipio").textContent = "Município obrigatório.";
+      valido = false;
+    }
+    if (!cultura.value) {
+      document.getElementById("erro-cultura").textContent = "Selecione uma cultura.";
+      valido = false;
+    }
+    if (!aceite.checked) {
+      document.getElementById("erro-aceite").textContent = "Você precisa concordar para continuar.";
+      valido = false;
+    }
+
+    if (!valido) return;
+
+    form.style.display = "none";
+    document.getElementById("sucesso-municipio").textContent = municipio.value.trim();
+    document.getElementById("form-sucesso").style.display = "block";
+  });
+})();
