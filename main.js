@@ -214,3 +214,32 @@
       explicacao: "Relatórios automáticos facilitam a comprovação de perdas.",
     },
   ];
+  const secaoQuiz = document.createElement("section");
+  secaoQuiz.id = "quiz";
+  secaoQuiz.className = "secao";
+  secaoQuiz.innerHTML = `
+    <div class="container">
+      <h2>Quiz — Teste seus conhecimentos</h2>
+      <div id="quiz-container">
+        <p id="quiz-contador"></p>
+        <p id="quiz-pergunta"></p>
+        <div id="quiz-opcoes"></div>
+        <p id="quiz-feedback" style="display:none"></p>
+        <button id="quiz-btn-prox" style="display:none">Próxima →</button>
+        <div id="quiz-resultado" style="display:none"></div>
+      </div>
+    </div>
+  `;
+
+  secaoBen.insertAdjacentElement("afterend", secaoQuiz);
+
+  let questaoAtual = 0;
+  let pontuacao    = 0;
+  let respondida   = false;
+
+  const perguntaEl  = document.getElementById("quiz-pergunta");
+  const opcoesEl    = document.getElementById("quiz-opcoes");
+  const feedbackEl  = document.getElementById("quiz-feedback");
+  const btnProx     = document.getElementById("quiz-btn-prox");
+  const resultadoEl = document.getElementById("quiz-resultado");
+  const contadorEl  = document.getElementById("quiz-contador");
