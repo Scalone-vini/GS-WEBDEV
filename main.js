@@ -148,3 +148,38 @@
     document.getElementById("form-sucesso").style.display = "block";
   });
 })();
+(function initQuiz() {
+  const secaoBen = document.querySelector("#beneficios");
+  if (!secaoBen) return;
+
+  const perguntas = [
+    {
+      texto: "Qual fenômeno climático pode destruir uma plantação de café em poucas horas?",
+      opcoes: ["Geada", "Vento moderado", "Nevoeiro", "Orvalho"],
+      correta: 0,
+      explicacao: "A geada destrói as células das plantas em poucas horas.",
+    },
+    {
+      texto: "Qual API gratuita fornece dados históricos de temperatura e precipitação?",
+      opcoes: ["Google Maps API", "NASA POWER API", "OpenWeather Pro", "IBGE Clima"],
+      correta: 1,
+      explicacao: "A NASA POWER API disponibiliza 30 anos de dados climáticos gratuitamente.",
+    },
+    {
+      texto: "O que é um 'veranico' na agricultura?",
+      opcoes: ["Vento forte no verão", "Seca dentro da estação chuvosa", "Tipo de praga", "Chuva de granizo"],
+      correta: 1,
+      explicacao: "Veranico é uma pausa prolongada das chuvas durante a estação úmida.",
+    },
+    {
+      texto: "Qual sensor Arduino mede temperatura e umidade do ar?",
+      opcoes: ["HC-SR04", "DHT22", "PIR 501", "MQ-135"],
+      correta: 1,
+      explicacao: "O DHT22 é amplamente usado em estações meteorológicas.",
+    },
+    {
+      texto: "Com quantas horas de antecedência o AgroSat emite alertas críticos?",
+      opcoes: ["6 horas", "12 horas", "48 horas", "7 dias"],
+      correta: 2,
+      explicacao: "O AgroSat gera alertas com até 48h de antecedência.",
+    },
