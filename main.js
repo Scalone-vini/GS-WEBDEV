@@ -278,8 +278,35 @@
       opcoesEl.querySelectorAll(".quiz-opcao")[q.correta].style.background = "green";
         feedbackEl.textContent = "❌ Incorreto. " + q.explicacao;
     }
-    feedbackEl.style.display = "block";
+feedbackEl.style.display = "block";
     btnProx.textContent   = questaoAtual < perguntas.length - 1 ? "Próxima →" : "Ver resultado 🏆";
     btnProx.style.display = "inline-block";
   }
-})();
+
+  btnProx.addEventListener("click", function () {
+    questaoAtual++;
+    if (questaoAtual < perguntas.length) {
+      carregarPergunta();
+    } else {
+      mostrarResultado();
+    }
+  });
+
+  function mostrarResultado() {
+    document.getElementById("quiz-container").style.display = "none";
+    resultadoEl.style.display = "block";
+    resultadoEl.innerHTML = `
+      <p>Você acertou <strong>${pontuacao} de ${perguntas.length}</strong>!</p>
+      <button id="btn-refazer">🔄 Refazer Quiz</button>
+    `;
+    document.getElementById("btn-refazer").addEventListener("click", function () {
+      questaoAtual = 0;
+      pontuacao    = 0;
+      resultadoEl.style.display = "none";
+      document.getElementById("quiz-container").style.display = "block";
+      carregarPergunta();
+    });
+  }
+
+  carregarPergunta();
+})();  // ← só esse, no final
