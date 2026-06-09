@@ -309,4 +309,66 @@ feedbackEl.style.display = "block";
   }
 
   carregarPergunta();
-})();  // ← só esse, no final
+})();
+(function initTema() {
+  const temas = [
+    {
+      id: "verde",
+      label: "🌿 Verde Campo",
+      vars: { "--cor-fundo": "#0a1f0f", "--cor-primaria": "#1a6b3a", "--cor-acento": "#4caf6e" },
+    },
+    {
+      id: "azul",
+      label: "🌙 Céu Noturno",
+      vars: { "--cor-fundo": "#06111f", "--cor-primaria": "#1a4a7a", "--cor-acento": "#4c9faf" },
+    },
+    {
+      id: "terra",
+      label: "🌅 Terra Quente",
+      vars: { "--cor-fundo": "#1a0f06", "--cor-primaria": "#7a3a1a", "--cor-acento": "#d4804c" },
+    },
+  ];
+
+  const painel = document.createElement("div");
+  painel.className = "tema-painel";
+  painel.innerHTML = `
+    <button id="tema-toggle">🎨</button>
+    <div id="tema-opcoes" style="display:none">
+      <p>Escolha um tema:</p>
+      ${temas.map(function (t) {
+        return `<button class="tema-opcao" data-id="${t.id}">${t.label}</button>`;
+      }).join("")}
+    </div>
+  `;
+  document.body.appendChild(painel);
+
+  document.getElementById("tema-toggle").addEventListener("click", function () {
+    const opcoes = document.getElementById("tema-opcoes");
+    opcoes.style.display = opcoes.style.display === "none" ? "block" : "none";
+  });
+
+  function aplicarTema(id) {
+    const tema = temas.find(function (t) { return t.id === id; });
+    if (!tema) return;
+    Object.entries(tema.vars).forEach(function ([prop, val]) {
+      document.documentElement.style.setProperty(prop, val);
+    });
+    localStorage.setItem("agrosat-tema", id);
+  }
+
+  painel.querySelectorAll(".tema-opcao").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      aplicarTema(btn.dataset.id);
+      document.getElementById("tema-opcoes").style.display = "none";
+    });
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!painel.contains(e.target)) {
+      document.getElementById("tema-opcoes").style.display = "none";
+    }
+  });
+
+  const temaSalvo = localStorage.getItem("agrosat-tema");
+  aplicarTema(temaSalvo || "verde");
+})();
